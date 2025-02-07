@@ -1,0 +1,40 @@
+{
+  "principalImage": "public/Alejandrov4.png",
+  "contactInformation": [
+    {
+      "name": "facebook",
+      "link": "https://www.facebook.com/alejandro.tapiatalavera/",
+      "icon": "fa-brands fa-facebook fa-xl"
+    },
+    {
+      "name": "github",
+      "link": "https://github.com/Alejo14",
+      "icon": "fa-brands fa-github fa-xl"
+    },
+    {
+      "name": "linkedin",
+      "link": "https://www.linkedin.com/in/alejandrotapiatalavera",
+      "icon": "fa-brands fa-linkedin fa-xl"
+    },
+    {
+      "name": "instagram",
+      "link": "https://www.instagram.com/aletapiatalavera/",
+      "icon": "fa-brands fa-instagram fa-xl"
+    },
+    {
+      "name": "email",
+      "link": "mailto:adtapiatalavera@gmail.com",
+      "icon": "fa fa-envelope fa-xl"
+    }
+  ],
+  "resume": {
+    "en": {
+      "link": "public/Alejandro David Tapia Talavera - EN.pdf",
+      "target": "_blank"
+    },
+    "es": {
+      "link": "public/Alejandro David Tapia Talavera - ES.pdf",
+      "target": "_blank"
+    }
+  }
+}

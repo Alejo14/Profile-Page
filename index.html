@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="src/app.js" defer></script>
+</head>
+  <body>
+    <main class="presentation-container">
+      <section id="information" class="information-container">
+        <div class="contact-container">
+          <h1>Hi! I am Alejandro David Tapia Talavera</h1>
+          <p class="description">Software Engineer and Full-stack Developer</p>
+          <div class="information-btn">
+            <button id="about-me-btn" type="button" class="btn"><i class="fa fa-user"></i>About me</button>
+            <button id="resume-btn" type="button" class="btn"><i class="fa fa-list-alt"></i>Resume</button>
+          </div>
+          <div id="contact-information-container" class="contact-information">
+            <!-- Added dynamically with app.js -->
+          </div>
+        </div>
+        <img id="principal-image" alt="Picture of Alejandro Tapia">
+      </section>
+      <section id="about-me" style="display: none;">
+        <h2>About me</h2>
+        <p>I am software engineer with 6 years of experience working at EY with international teams to design, implement and deploy solutions, related to compliance and risk management, using a stack of various technologies that include: Angular/React, .NET, SQL Server, Azure DevOps and Azure Cloud.</p>
+      </section>
+      <section id="projects-and-carrer" class="project-carreer-container" style="display: none;">
+        <div id="projects" class="project-container">
+          <div class="carousel">
+            <button id="b-left"><i class="fa-solid fa-caret-left fa-2xl"></i></button>
+            <div class="card-left"></div>
+            <div class="card-middle"></div>
+            <div class="card-right"></div>
+            <button id="b-right"><i class="fa-solid fa-caret-right fa-2xl"></i></button>
+          </div>
+        </div>
+        <div id="my-carreer" class="carrer-container"></div>
+      </section>         
+    </main>
+  </body>
+</html>
