@@ -2,21 +2,25 @@
   --primary-color: #213555;
   --secondary-color: #4a77bf;
   --terciary-color: #a4a3ec;
-  --accent-color-light: #FFF;
+  --accent-color-light: #fff;
   --accent-color-dark: #000500;
 
   --test-color-1: red;
   --test-color-2: blue;
-  --test-color-3: #00FF00;
+  --test-color-3: #00ff00;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-html, body, main {
+html,
+body,
+main {
   height: 100%;
 }
 
@@ -24,7 +28,12 @@ body {
   background-color: var(--primary-color);
   color: var(--accent-color-light);
   font-size: 1.5em;
-  font-family: sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    var(--primary-color),
+    var(--secondary-color),
+    var(--terciary-color)
+  );
 }
 
 header {
@@ -55,14 +64,13 @@ header {
     height: 100%;
     width: 100%;
     gap: 40px;
-    background: linear-gradient(var(--primary-color), var(--secondary-color), var(--terciary-color));
   }
   img {
     border-radius: 20px;
     max-width: 60%;
     max-height: 60%;
     margin: 20px 0;
-    animation: fade-in 2s ease-in; 
+    animation: fade-in 2s ease-in;
   }
 }
 
@@ -81,10 +89,13 @@ header {
     gap: 30px;
     padding: 20px 0;
   }
-  a, a:focus, a:active, a:hover {
+  a,
+  a:focus,
+  a:active,
+  a:hover {
     color: var(--accent-color-light);
   }
-  a>i:hover {
+  a > i:hover {
     transform: scale(1.2);
   }
 }
@@ -119,7 +130,7 @@ header {
     font-weight: bolder;
     border-radius: 10px;
     box-shadow: 0px 0px 5px var(--accent-color-light);
-    border: 1px solid var(--accent-color-light)
+    border: 1px solid var(--accent-color-light);
   }
   i {
     margin-right: 10px;
@@ -127,7 +138,7 @@ header {
   &:hover {
     transform: scale(1.1);
   }
-} 
+}
 
 .project-carreer-container {
   display: flex;
@@ -184,7 +195,8 @@ header {
   width: 70%;
 }
 
-.card-right, .card-left {
+.card-right,
+.card-left {
   background-image: url(public/Alejandrov2.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -194,11 +206,11 @@ header {
 }
 
 .card-left {
-  mask-image: linear-gradient(to right, transparent, rgba(0,0,0,0.5), black);
+  mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.5), black);
 }
 
 .card-right {
-  mask-image: linear-gradient(to left, transparent, rgba(0,0,0,0.5), black);
+  mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.5), black);
 }
 
 @keyframes fade-in {
@@ -237,7 +249,7 @@ header {
   body {
     font-size: 1.2em;
   }
-  .information-container img{
+  .information-container img {
     width: 30%;
   }
   .information-btn {
@@ -256,4 +268,36 @@ header {
   body {
     font-size: 1em;
   }
+}
+
+.d-none {
+  display: none !important;
+}
+
+.about-me-container {
+  width: 50%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-subtitle {
+  font-weight: bold;
+}
+
+.front-end-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
