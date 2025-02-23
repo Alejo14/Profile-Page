@@ -125,7 +125,12 @@ header {
 }
 
 #copy-email {
-  cursor: pointer;
+  & {
+    cursor: pointer;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .tooltip {
