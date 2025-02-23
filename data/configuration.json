@@ -1,5 +1,5 @@
 {
-  "principalImage": "public/Alejandrov4.png",
+  "principalImage": "public/Alejandrov5.png",
   "contactInformation": [
     {
       "name": "facebook",
@@ -20,11 +20,6 @@
       "name": "instagram",
       "link": "https://www.instagram.com/aletapiatalavera/",
       "icon": "fa-brands fa-instagram fa-xl"
-    },
-    {
-      "name": "email",
-      "link": "mailto:adtapiatalavera@gmail.com",
-      "icon": "fa fa-envelope fa-xl"
     }
   ],
   "resume": {

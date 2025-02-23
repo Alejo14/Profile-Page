@@ -11,6 +11,10 @@ const homeBtn = document.getElementById("home-btn");
 const principalImage = document.getElementById("principal-image");
 const aboutMeDesc = document.getElementById("about-me-description");
 
+const copyIcon = document.getElementById("copy-email");
+const email = document.getElementById("contact-me-email");
+const tooltip = document.querySelector(".tooltip-text");
+
 const capitalize = (str) => str[0].toUpperCase() + str.slice(1);
 
 const displayResume = (configuration) => {
@@ -46,20 +50,25 @@ const displayStack = (container, stack, stakname) => {
   });
 };
 
-const displayAboutMeSection = () => {
-  informationSection.classList.add("d-none");
-  aboutMeSection.classList.remove("d-none");
-};
-
-const hideAboutMeSection = () => {
-  informationSection.classList.remove("d-none");
-  aboutMeSection.classList.add("d-none");
-};
-
 const fetchConfiguration = async () => {
   const res = await fetch("data/configuration.json");
   const data = await res.json();
   return data;
+};
+
+const copyToClipboard = () => {
+  const textToCopy = email.textContent;
+  navigator.clipboard.writeText(textToCopy);
+  copyIcon.classList.remove("fa-regular", "fa-copy");
+  copyIcon.classList.add("fa-solid", "fa-check");
+  copyIcon.removeEventListener("click", copyToClipboard);
+  tooltip.textContent = "Copied!";
+  setTimeout(() => {
+    copyIcon.classList.remove("fa-solid", "fa-check");
+    copyIcon.classList.add("fa-regular", "fa-copy");
+    copyIcon.addEventListener("click", copyToClipboard);
+    tooltip.textContent = "Copy me!";
+  }, 3000);
 };
 
 const init = async () => {
@@ -72,14 +81,6 @@ const init = async () => {
     e.preventDefault();
     displayResume(configuration);
   });
-  aboutMeBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    displayAboutMeSection();
-  });
-  homeBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    hideAboutMeSection();
-  });
   const skillMap = new Map(Object.entries(configuration.skills));
   skillMap.forEach((value, key) => {
     const container = document.querySelector(`.${key}-container`);
@@ -88,3 +89,17 @@ const init = async () => {
 };
 
 init();
+
+aboutMeBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  informationSection.classList.add("d-none");
+  aboutMeSection.classList.remove("d-none");
+});
+
+homeBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  informationSection.classList.remove("d-none");
+  aboutMeSection.classList.add("d-none");
+});
+
+copyIcon.addEventListener("click", copyToClipboard);
