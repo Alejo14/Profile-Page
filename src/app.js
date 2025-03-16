@@ -1,8 +1,11 @@
+import { fetchConfiguration } from "./modules/connection.js";
+
 //TODO: Change language
 const defaultLanguage = "en";
 
 const informationSection = document.getElementById("information");
 const aboutMeSection = document.getElementById("about-me");
+const socialMediaDiv = document.getElementById("contact-information-container");
 
 const resumeBtn = document.getElementById("resume-btn");
 const aboutMeBtn = document.getElementById("about-me-btn");
@@ -23,9 +26,6 @@ const displayResume = (configuration) => {
 };
 
 const displayContactInfo = (contactInfoList) => {
-  const socialMediaDiv = document.getElementById(
-    "contact-information-container"
-  );
   contactInfoList.forEach((el) => {
     const anchor = document.createElement("a");
     anchor.href = el.link;
@@ -43,17 +43,13 @@ const displayStack = (container, stack, stakname) => {
   subtitle.classList.add("skill-subtitle");
   container.appendChild(subtitle);
   stack.forEach((el) => {
-    const i = document.createElement("i");
-    i.classList.add(...el.icon.split(" "));
-    i.setAttribute("id", el.name);
-    container.appendChild(i);
+    const img = document.createElement("img");
+    img.setAttribute("src", el.icon);
+    img.setAttribute("alt", `${el.name} image`);
+    img.setAttribute("id", el.name);
+    img.classList.add("skill-icon");
+    container.appendChild(img);
   });
-};
-
-const fetchConfiguration = async () => {
-  const res = await fetch("data/configuration.json");
-  const data = await res.json();
-  return data;
 };
 
 const copyToClipboard = () => {
@@ -71,24 +67,22 @@ const copyToClipboard = () => {
   }, 3000);
 };
 
-const init = async () => {
-  const configuration = await fetchConfiguration();
-  /* Configuring properties and listeners in DOM */
-  principalImage.setAttribute("src", configuration.principalImage);
-  aboutMeDesc.textContent = configuration.aboutMe;
-  displayContactInfo(configuration.contactInformation);
-  resumeBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    displayResume(configuration);
-  });
-  const skillMap = new Map(Object.entries(configuration.skills));
-  skillMap.forEach((value, key) => {
-    const container = document.querySelector(`.${key}-container`);
-    displayStack(container, value, key);
-  });
-};
+const configuration = await fetchConfiguration();
 
-init();
+principalImage.setAttribute("src", configuration.principalImage);
+aboutMeDesc.textContent = configuration.aboutMe;
+
+displayContactInfo(configuration.contactInformation);
+resumeBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  displayResume(configuration);
+});
+
+const skillMap = new Map(Object.entries(configuration.skills));
+skillMap.forEach((value, key) => {
+  const container = document.getElementById(key);
+  displayStack(container, value, key);
+});
 
 aboutMeBtn.addEventListener("click", (e) => {
   e.preventDefault();

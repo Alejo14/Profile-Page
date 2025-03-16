@@ -1,5 +1,5 @@
 {
-  "principalImage": "public/Alejandrov5.png",
+  "principalImage": "public/picture/Alejandrov5.png",
   "contactInformation": [
     {
       "name": "facebook",
@@ -24,11 +24,11 @@
   ],
   "resume": {
     "en": {
-      "link": "public/Alejandro David Tapia Talavera - EN.pdf",
+      "link": "public/cv/Alejandro David Tapia Talavera - EN.pdf",
       "target": "_blank"
     },
     "es": {
-      "link": "public/Alejandro David Tapia Talavera - ES.pdf",
+      "link": "public/cv/Alejandro David Tapia Talavera - ES.pdf",
       "target": "_blank"
     }
   },
@@ -37,23 +37,69 @@
     "front-end": [
       {
         "name": "javascript",
-        "icon": "fa-brands fa-js fa-2xl"
+        "icon": "public/logos/js-logo.png"
       },
       {
         "name": "html",
-        "icon": "fa-brands fa-html5 fa-2xl"
+        "icon": "public/logos/html5-logo.png"
       },
       {
         "name": "css",
-        "icon": "fa-brands fa-css3 fa-2xl"
+        "icon": "public/logos/css-logo.png"
       },
       {
         "name": "react",
-        "icon": "fa-brands fa-react fa-2xl"
+        "icon": "public/logos/react-logo.png"
       },
       {
         "name": "angular",
-        "icon": "fa-brands fa-angular fa-2xl"
+        "icon": "public/logos/angularjs-logo.png"
+      },
+      {
+        "name": "vue",
+        "icon": "public/logos/vue-logo.png"
+      }
+    ],
+    "back-end": [
+      {
+        "name": "csharp",
+        "icon": "public/logos/csharp-logo.png"
+      },
+      {
+        "name": "dotnet",
+        "icon": "public/logos/net-logo.png"
+      },
+      {
+        "name": "java",
+        "icon": "public/logos/java-logo.png"
+      },
+      {
+        "name": "python",
+        "icon": "public/logos/python-logo.png"
+      }
+    ],
+    "database": [
+      {
+        "name": "sqlserver",
+        "icon": "public/logos/sqlserver-logo.png"
+      },
+      {
+        "name": "mysql",
+        "icon": "public/logos/mysql-logo.png"
+      },
+      {
+        "name": "mongodb",
+        "icon": "public/logos/mongo-logo.png"
+      }
+    ],
+    "cloud": [
+      {
+        "name": "aws",
+        "icon": "public/logos/aws-logo.png"
+      },
+      {
+        "name": "azure",
+        "icon": "public/logos/azure-logo.png"
       }
     ]
   }
