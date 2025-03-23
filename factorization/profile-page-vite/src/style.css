@@ -1,0 +1,58 @@
+:root {
+  --primary-color: #213555;
+  --secondary-color: #4a77bf;
+  --terciary-color: #a4a3ec;
+  --cuartary-color: #c6c5ea;
+  --accent-color-light: #ffffff;
+  --accent-color-dark: #000500;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body,
+main {
+  height: 100%;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--accent-color-light);
+  font-size: 1.5em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    var(--primary-color),
+    var(--secondary-color),
+    var(--terciary-color)
+  );
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+i {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.d-none {
+  display: none;
+}
+
+/*Animations & Media Queries*/
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 1.1em;
+  }
+}

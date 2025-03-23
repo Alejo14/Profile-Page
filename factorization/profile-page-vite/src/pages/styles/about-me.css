@@ -1,0 +1,40 @@
+.about-me-container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+  animation: opacity 1s linear;
+}
+
+.details-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.bio-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+}
+
+::slotted(*) {
+  width: 35%;
+}
+
+/*Animations and Media Queries*/
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

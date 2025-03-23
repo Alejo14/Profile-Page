@@ -1,6 +1,9 @@
 {
-  "principalImage": "public/picture/Alejandrov5.png",
-  "contactInformation": [
+  "principalImage": {
+    "src": "picture/Alejandrov5.png",
+    "alt": "Alejandro Tapia Profile Image"
+  },
+  "socialMedia": [
     {
       "name": "facebook",
       "link": "https://www.facebook.com/alejandro.tapiatalavera/",
@@ -24,11 +27,11 @@
   ],
   "resume": {
     "en": {
-      "link": "public/cv/Alejandro David Tapia Talavera - EN.pdf",
+      "link": "cv/Alejandro David Tapia Talavera - EN.pdf",
       "target": "_blank"
     },
     "es": {
-      "link": "public/cv/Alejandro David Tapia Talavera - ES.pdf",
+      "link": "cv/Alejandro David Tapia Talavera - ES.pdf",
       "target": "_blank"
     }
   },
@@ -37,69 +40,69 @@
     "front-end": [
       {
         "name": "javascript",
-        "icon": "public/logos/js-logo.png"
+        "icon": "logos/js-logo.png"
       },
       {
         "name": "html",
-        "icon": "public/logos/html5-logo.png"
+        "icon": "logos/html5-logo.png"
       },
       {
         "name": "css",
-        "icon": "public/logos/css-logo.png"
+        "icon": "logos/css-logo.png"
       },
       {
         "name": "react",
-        "icon": "public/logos/react-logo.png"
+        "icon": "logos/react-logo.png"
       },
       {
         "name": "angular",
-        "icon": "public/logos/angularjs-logo.png"
+        "icon": "logos/angularjs-logo.png"
       },
       {
         "name": "vue",
-        "icon": "public/logos/vue-logo.png"
+        "icon": "logos/vue-logo.png"
       }
     ],
     "back-end": [
       {
         "name": "csharp",
-        "icon": "public/logos/csharp-logo.png"
+        "icon": "logos/csharp-logo.png"
       },
       {
         "name": "dotnet",
-        "icon": "public/logos/net-logo.png"
+        "icon": "logos/net-logo.png"
       },
       {
         "name": "java",
-        "icon": "public/logos/java-logo.png"
+        "icon": "logos/java-logo.png"
       },
       {
         "name": "python",
-        "icon": "public/logos/python-logo.png"
+        "icon": "logos/python-logo.png"
       }
     ],
     "database": [
       {
         "name": "sqlserver",
-        "icon": "public/logos/sqlserver-logo.png"
+        "icon": "logos/sqlserver-logo.png"
       },
       {
         "name": "mysql",
-        "icon": "public/logos/mysql-logo.png"
+        "icon": "logos/mysql-logo.png"
       },
       {
         "name": "mongodb",
-        "icon": "public/logos/mongo-logo.png"
+        "icon": "logos/mongo-logo.png"
       }
     ],
     "cloud": [
       {
         "name": "aws",
-        "icon": "public/logos/aws-logo.png"
+        "icon": "logos/aws-logo.png"
       },
       {
         "name": "azure",
-        "icon": "public/logos/azure-logo.png"
+        "icon": "logos/azure-logo.png"
       }
     ]
   }

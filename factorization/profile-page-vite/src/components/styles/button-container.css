@@ -1,0 +1,14 @@
+.information-btn {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/*Animations & Media Queries*/
+@media screen and (max-width: 800px) {
+  .information-btn {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

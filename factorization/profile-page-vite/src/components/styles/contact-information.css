@@ -1,0 +1,91 @@
+.icon-container {
+  & {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px 0;
+  }
+  a,
+  a:focus,
+  a:active,
+  a:hover {
+    color: var(--accent-color-light);
+  }
+  a > i:hover {
+    transform: scale(1.2);
+  }
+}
+
+.email-container {
+  & {
+    font-style: italic;
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+  }
+  & > div {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+  }
+  & > label {
+    margin: 2px 0;
+  }
+}
+
+.email {
+  & {
+    color: var(--accent-color-light);
+    text-decoration: none;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
+
+#copy-email {
+  & {
+    cursor: pointer;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  font-size: 0.8em;
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--secondary-color);
+  color: var(--accent-color-light);
+  text-align: center;
+  padding: 10px 2px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 100%;
+  transform: translate(10px, 40px);
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+
+/*Animations & Media Queries*/
+@media screen and (max-width: 800px) {
+  .tooltip .tooltip-text {
+    padding: 5px 2px;
+  }
+}
