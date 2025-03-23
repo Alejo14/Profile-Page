@@ -7,8 +7,22 @@
     padding: 20px;
     font-size: 0.7em;
     gap: 100px;
+    animation: opacity 2s linear;
   }
   & > span:first-child {
     font-style: italic;
+  }
+}
+
+/*Animations and Media Queries*/
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }
