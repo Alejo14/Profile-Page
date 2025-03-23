@@ -3,8 +3,11 @@
   --secondary-color: #4a77bf;
   --terciary-color: #a4a3ec;
   --cuartary-color: #c6c5ea;
+
   --accent-color-light: #ffffff;
   --accent-color-dark: #000500;
+
+  --primary-color-opacity: #21355555;
 }
 
 *,
@@ -44,6 +47,12 @@ main {
 i {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
+}
+
+.navbar-container {
+  width: 100%;
+  position: absolute;
+  top: 0;
 }
 
 .d-none {

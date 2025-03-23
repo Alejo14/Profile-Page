@@ -1,4 +1,21 @@
 {
+  "navbar": [
+    {
+      "name": "Home",
+      "event": "show-home",
+      "id": "home-section"
+    },
+    {
+      "name": "About",
+      "event": "show-about",
+      "id": "about-me-section"
+    },
+    {
+      "name": "Projects",
+      "event": "show-projects",
+      "id": "projects-section"
+    }
+  ],
   "principalImage": {
     "src": "picture/Alejandrov5.png",
     "alt": "Alejandro Tapia Profile Image"

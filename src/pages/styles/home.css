@@ -1,4 +1,4 @@
-.presentation-container {
+.home-container {
   & {
     display: flex;
     flex-direction: row;
@@ -52,7 +52,7 @@
   }
 }
 @media screen and (max-width: 1500px) {
-  .presentation-container img {
+  .home-container img {
     width: 30%;
     max-width: 30%;
   }
@@ -61,7 +61,7 @@
   }
 }
 @media screen and (max-width: 800px) {
-  .presentation-container img {
+  .home-container img {
     width: 40%;
     max-width: 40%;
   }

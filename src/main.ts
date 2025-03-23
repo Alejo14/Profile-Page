@@ -1,12 +1,15 @@
+import fetchConfiguration from "./services/connection";
+import { type Link } from "./types/types";
 import "./style.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+  <nav-bar id="nav-bar" class="navbar-container"></nav-bar>
   <div class="container">
-    <presentation-section id="presentation-section">
-      <button-container slot="info-buttons"></button-container>
+    <home-section id="home-section">
+      <resume-button slot="info-buttons"></resume-button>
       <contact-information slot="info-links"></contact-information>
-    </presentation-section>
+    </home-section>
     <about-me-section id="about-me-section" class="d-none">
       <skill-information slot="skill-container"></skill-information>
     </about-me-section>
@@ -15,15 +18,16 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   </div>
 `;
 
-const presentationSection = document.getElementById("presentation-section")!;
-const aboutMeSection = document.getElementById("about-me-section")!;
+const navbarContainer = document.getElementById("nav-bar")!;
 
-presentationSection.addEventListener("hide-section", () => {
-  presentationSection.classList.add("d-none");
-  aboutMeSection.classList.remove("d-none");
-});
-
-aboutMeSection.addEventListener("hide-section", () => {
-  presentationSection.classList.remove("d-none");
-  aboutMeSection.classList.add("d-none");
+const configuration = await fetchConfiguration();
+console.log(configuration);
+configuration.navbar.forEach((el: Link) => {
+  navbarContainer.addEventListener(el.event, () => {
+    document.querySelectorAll(".container > *").forEach((child) => {
+      child.id === el.id
+        ? child.classList.remove("d-none")
+        : child.classList.add("d-none");
+    });
+  });
 });

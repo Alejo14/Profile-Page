@@ -4,9 +4,9 @@ import { type PrincipalImage } from "../types/types";
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
-    @import url("src/pages/styles/presentation.css");
+    @import url("src/pages/styles/home.css");
   </style>
-  <section id="presentation" class="presentation-container">
+  <section id="home" class="home-container">
     <div class="information-container">
       <h1>Hi! I am Alejandro David Tapia Talavera</h1>
       <p class="description">Software Engineer and Full-stack Developer</p>
@@ -17,7 +17,7 @@ template.innerHTML = `
   </section>
 `;
 
-class Presentation extends HTMLElement {
+class Home extends HTMLElement {
   constructor() {
     super();
     const section = this.attachShadow({ mode: "open" });
@@ -34,4 +34,4 @@ class Presentation extends HTMLElement {
   }
 }
 
-customElements.define("presentation-section", Presentation);
+customElements.define("home-section", Home);

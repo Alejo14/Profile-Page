@@ -4,6 +4,12 @@ export type Tooltip = Element;
 export type Container = HTMLElement;
 export type Key = string;
 
+export type Link = {
+  name: string;
+  event: string;
+  id: string;
+};
+
 export type PrincipalImage = {
   src: string;
   alt: string;

@@ -3,9 +3,7 @@ import fetchConfiguration from "../services/connection";
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
-    @import url("src/styles/ui/button.css");
     @import url("src/pages/styles/about-me.css");
-    @import url("node_modules/@fortawesome/fontawesome-free/css/all.min.css");
   </style>
   <section id="about-me" class="about-me-container">
     <div class="details-container">
@@ -15,9 +13,6 @@ template.innerHTML = `
       </div>
       <slot name="skill-container"></slot>
     </div>
-    <button id="home-btn" class="btn">
-      <i class="fa fa-home"></i> Home
-    </button>
   </section>
 `;
 
@@ -33,18 +28,6 @@ class AboutMe extends HTMLElement {
       "about-me-description"
     )!;
     aboutMeDescription.textContent = configuration.aboutMe;
-
-    const homeBtn = this.shadowRoot?.getElementById("home-btn")!;
-    homeBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      this.dispatchEvent(
-        new CustomEvent("hide-section", {
-          detail: {},
-          bubbles: true,
-          composed: true,
-        })
-      );
-    });
   }
 }
 
