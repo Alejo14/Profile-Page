@@ -8,6 +8,8 @@
   --accent-color-dark: #000500;
 
   --primary-color-opacity: #21355555;
+  --secondary-color-opacity: #4a77bf55;
+  --terciary-color-opacity: #a4a3ec55;
 }
 
 *,
@@ -49,10 +51,22 @@ i {
   font-weight: 900;
 }
 
-.navbar-container {
-  width: 100%;
-  position: absolute;
+.container > * {
+  position: relative;
   top: 0;
+}
+
+.layout {
+  position: absolute;
+  width: 100%;
+}
+
+#nav-bar {
+  top: 0;
+}
+
+#footer {
+  bottom: 0;
 }
 
 .d-none {

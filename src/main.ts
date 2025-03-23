@@ -4,7 +4,7 @@ import "./style.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <nav-bar id="nav-bar" class="navbar-container"></nav-bar>
+  <nav-bar id="nav-bar" class="layout"></nav-bar>
   <div class="container">
     <home-section id="home-section">
       <resume-button slot="info-buttons"></resume-button>
@@ -16,6 +16,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     <!-- TODO: How to add the projects that I have done to the website -->
     <!-- Should I need a new page for projects? Can I optimize space? -->
   </div>
+  <footer-container id="footer" class="layout"></footer-container>
 `;
 
 const navbarContainer = document.getElementById("nav-bar")!;

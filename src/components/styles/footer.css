@@ -1,0 +1,14 @@
+.footer {
+  & {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color-opacity);
+    padding: 20px;
+    font-size: 0.7em;
+    gap: 100px;
+  }
+  & > span:first-child {
+    font-style: italic;
+  }
+}

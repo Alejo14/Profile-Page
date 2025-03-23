@@ -122,5 +122,15 @@
         "icon": "logos/azure-logo.png"
       }
     ]
+  },
+  "footer": {
+    "en": {
+      "description": "Website design and developed by Alejandro Tapia",
+      "copyright": "Copyright © {} all rights reserved"
+    },
+    "es": {
+      "description": "Página web diseñada e implementada por Alejandro Tapía",
+      "copyright": "Copyright © {} todos los derechos reservados"
+    }
   }
 }
