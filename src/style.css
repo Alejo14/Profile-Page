@@ -79,3 +79,19 @@ i {
     font-size: 1.1em;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #1e1e1e;
+    --secondary-color: #3c3c3c;
+    --terciary-color: #4d4d4d;
+    --cuartary-color: #5d5d5d;
+
+    --accent-color-light: #ffffff;
+    --accent-color-dark: #000000;
+
+    --primary-color-opacity: #1e1e1e55;
+    --secondary-color-opacity: #3c3c3c55;
+    --terciary-color-opacity: #4d4d4d55;
+  }
+}
