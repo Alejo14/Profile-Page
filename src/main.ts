@@ -2,6 +2,8 @@ import fetchConfiguration from "./services/connection";
 import { type Link } from "./types/types";
 import "./style.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import "./components";
+import "./pages";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <nav-bar id="nav-bar" class="layout"></nav-bar>
