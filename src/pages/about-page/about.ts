@@ -3,7 +3,7 @@ import fetchConfiguration from "../../services/connection";
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
-    @import url("src/pages/styles/about-me.css");
+    @import url("src/pages/styles/about.css");
   </style>
   <section id="about-me" class="about-me-container">
     <div class="details-container">

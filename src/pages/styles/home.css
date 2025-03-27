@@ -12,13 +12,13 @@
     border-radius: 50%;
     max-width: 20%;
     margin: 20px 0;
-    animation: opacity 2s ease-in;
+    animation: opacity 1s linear;
     box-shadow: 0 0 10px var(--primary-color);
   }
 }
 .information-container {
   & {
-    animation: opacity 2s ease-in;
+    animation: opacity 1s linear;
     padding: 20px;
     width: 25%;
     display: flex;

@@ -7,6 +7,7 @@ import "./pages";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <nav-bar id="nav-bar" class="layout">
+    <i slot="icon-language" class="fa fa-language fa-lg" id="language-icon"></i>
     <i slot="icon-theme" id="theme-icon"></i>
   </nav-bar>
   <div class="container">

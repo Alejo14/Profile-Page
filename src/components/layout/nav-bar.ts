@@ -9,7 +9,14 @@ template.innerHTML = `
   </style>
   <nav class="menu">
     <ul id="links"></ul>
-    <div class="switch-container">
+    <div class="settings-container">
+      <slot name="icon-language"></slot>
+      <div class="language">
+        <select class="language-list">
+          <option value="english" selected="selected">EN</option>
+          <option value="spanish">ES</option>
+        </select>
+      </div>
       <slot name="icon-theme"></slot>
       <label class="switch">
         <input type="checkbox" id="theme-slider" />
