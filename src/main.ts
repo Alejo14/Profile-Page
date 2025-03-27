@@ -1,12 +1,14 @@
 import fetchConfiguration from "./services/connection";
-import { type Link } from "./types/types";
-import "./style.css";
+import { type Link } from "./types/app-types";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import "./style.css";
 import "./components";
 import "./pages";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <nav-bar id="nav-bar" class="layout"></nav-bar>
+  <nav-bar id="nav-bar" class="layout">
+    <i slot="icon-theme" id="theme-icon"></i>
+  </nav-bar>
   <div class="container">
     <home-section id="home-section">
       <resume-button slot="info-buttons"></resume-button>
@@ -22,9 +24,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 `;
 
 const navbarContainer = document.getElementById("nav-bar")!;
-
+const themeIcon = document.getElementById("theme-icon")!;
 const configuration = await fetchConfiguration();
-console.log(configuration);
+
 configuration.navbar.forEach((el: Link) => {
   navbarContainer.addEventListener(el.event, () => {
     document.querySelectorAll(".container > *").forEach((child) => {
@@ -34,3 +36,33 @@ configuration.navbar.forEach((el: Link) => {
     });
   });
 });
+
+document.addEventListener(
+  "change-theme",
+  (e: CustomEventInit) => {
+    localStorage.setItem("theme", e.detail.theme);
+    document.documentElement.setAttribute("data-theme", e.detail.theme);
+    themeIcon.classList.toggle("fa-sun");
+    themeIcon.classList.toggle("fa-moon");
+  },
+  true
+);
+
+const setTheme = () => {
+  const themeStorage = localStorage.getItem("theme");
+  const theme =
+    (themeStorage && themeStorage === "dark") ||
+    (window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ? "dark"
+      : "light";
+  localStorage.setItem("theme", theme);
+  if (theme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeIcon.classList.add("fa-solid", "fa-moon");
+  } else {
+    themeIcon.classList.add("fa-solid", "fa-sun");
+  }
+};
+
+setTheme();

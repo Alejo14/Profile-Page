@@ -1,5 +1,5 @@
-import fetchConfiguration from "../services/connection";
-import { type PrincipalImage } from "../types/types";
+import fetchConfiguration from "../../services/connection";
+import { type PrincipalImage } from "../../types/app-types";
 
 const template = document.createElement("template");
 template.innerHTML = `

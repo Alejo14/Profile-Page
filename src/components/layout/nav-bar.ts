@@ -1,5 +1,5 @@
-import fetchConfiguration from "../services/connection";
-import { type Link } from "../types/types";
+import fetchConfiguration from "../../services/connection";
+import { type Link } from "../../types/app-types";
 
 const template = document.createElement("template");
 
@@ -9,6 +9,13 @@ template.innerHTML = `
   </style>
   <nav class="menu">
     <ul id="links"></ul>
+    <div class="switch-container">
+      <slot name="icon-theme"></slot>
+      <label class="switch">
+        <input type="checkbox" id="theme-slider" />
+        <span class="slider"></span>
+      </label>
+    </div>
   </nav>
 `;
 
@@ -22,6 +29,9 @@ class NavBar extends HTMLElement {
     const configuration = await fetchConfiguration();
     const ul = this.shadowRoot?.getElementById("links")!;
     this.addLinks(configuration.navbar, ul);
+
+    const themeSlider = this.shadowRoot?.getElementById("theme-slider")!;
+    themeSlider.addEventListener("change", this.toogleTheme);
   }
   addLinks(navbarLinks: Link[], ul: HTMLElement) {
     navbarLinks.forEach((link: Link, index: number) => {
@@ -31,25 +41,35 @@ class NavBar extends HTMLElement {
       li.addEventListener("click", (e) => {
         e.preventDefault();
         if (!li.classList.contains("selected")) {
-          this.configureClickEvent(e.target as HTMLElement, link.event);
+          this.changeSection(e.target as HTMLElement, link.event);
         }
       });
       ul.appendChild(li);
     });
   }
-  configureClickEvent(li: HTMLElement, event: string) {
-    const success = this.dispatchEvent(
+  changeSection(li: HTMLElement, event: string) {
+    this.dispatchEvent(
       new CustomEvent(event, {
         detail: {},
         bubbles: true,
         composed: true,
       })
     );
-    console.log(success);
     this.shadowRoot?.querySelectorAll(".menu>ul>li").forEach((li) => {
       li.classList.remove("selected");
     });
     li.classList.add("selected");
+  }
+  toogleTheme() {
+    const currentTheme = localStorage.getItem("theme");
+    const targetTheme = currentTheme === "dark" ? "light" : "dark";
+    this.dispatchEvent(
+      new CustomEvent("change-theme", {
+        detail: { theme: targetTheme },
+        bubbles: false,
+        composed: true,
+      })
+    );
   }
 }
 

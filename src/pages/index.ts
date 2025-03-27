@@ -1,2 +1,2 @@
-import "./home";
-import "./about-me";
+import "./home-page/home";
+import "./about-page/about";

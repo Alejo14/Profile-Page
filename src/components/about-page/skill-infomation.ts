@@ -1,6 +1,5 @@
-import fetchConfiguration from "../services/connection";
-import { type SkillSet, type Container, type Key } from "../types/types";
-import { capitalize } from "../utils/utils";
+import fetchConfiguration from "../../services/connection";
+import { type SkillSet, type Container, type Key } from "../../types/app-types";
 
 const template = document.createElement("template");
 
@@ -36,7 +35,7 @@ class SkillInformation extends HTMLElement {
   }
   displayStack(container: Container, stack: SkillSet, stakname: Key) {
     const subtitle = document.createElement("span");
-    subtitle.textContent = capitalize(stakname);
+    subtitle.textContent = this.capitalize(stakname);
     subtitle.classList.add("skill-subtitle");
     container.appendChild(subtitle);
     const divContainer = document.createElement("div");
@@ -50,6 +49,9 @@ class SkillInformation extends HTMLElement {
       img.classList.add("skill-icon");
       divContainer.appendChild(img);
     });
+  }
+  capitalize(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 }
 

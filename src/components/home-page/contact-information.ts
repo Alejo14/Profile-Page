@@ -1,10 +1,10 @@
-import fetchConfiguration from "../services/connection";
+import fetchConfiguration from "../../services/connection";
 import {
   type Email,
   type Icon,
   type Tooltip,
   type SocialMedia,
-} from "../types/types";
+} from "../../types/app-types";
 
 const template = document.createElement("template");
 template.innerHTML = `

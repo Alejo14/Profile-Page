@@ -1,4 +1,4 @@
-import fetchConfiguration from "../services/connection";
+import fetchConfiguration from "../../services/connection";
 
 const template = document.createElement("template");
 template.innerHTML = `
