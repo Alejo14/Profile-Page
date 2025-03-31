@@ -49,7 +49,7 @@
   }
 }
 
-#copy-email {
+.copy-icon {
   & {
     cursor: pointer;
   }

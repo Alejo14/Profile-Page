@@ -1,15 +1,14 @@
-import fetchConfiguration from "../../services/connection";
+import templateHTML from "./footer.html?raw";
+import styles from "./footer.css?inline";
+import { type LanguageConfiguration } from "./footer.types";
 
 const template = document.createElement("template");
 
 template.innerHTML = `
   <style>
-    @import url("src/components/styles/footer.css");
+    ${styles}
   </style>
-  <div class="footer">
-    <span id="description"></span>
-    <span id="copyright"></span>
-  <div>
+  ${templateHTML}
 `;
 
 class Footer extends HTMLElement {
@@ -19,13 +18,16 @@ class Footer extends HTMLElement {
     container.appendChild(template.content.cloneNode(true));
   }
   async connectedCallback() {
-    const configuration = await fetchConfiguration();
-    const footer = configuration.footer["en"];
+    const language = localStorage.getItem("language") || "en";
+    const languageConfig = await import(`./config/${language}.json`);
+    this.renderTemplate(languageConfig);
+  }
+  renderTemplate(languageConfig: LanguageConfiguration) {
     const description = this.shadowRoot?.getElementById("description")!;
     const copyright = this.shadowRoot?.getElementById("copyright")!;
-    description.textContent = footer.description;
+    description.textContent = languageConfig.description;
     const year = new Date().getFullYear().toString();
-    copyright.textContent = footer.copyright.replace("{}", year);
+    copyright.textContent = languageConfig.copyright.replace("{}", year);
   }
 }
 

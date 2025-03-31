@@ -1,19 +1,15 @@
 import fetchConfiguration from "../../services/connection";
+import templateHTML from "./skill-information.html?raw";
+import sytles from "./skill-information.css?inline";
 import { type SkillSet, type Container, type Key } from "../../types/app-types";
 
 const template = document.createElement("template");
 
 template.innerHTML = `
   <style>
-    @import url("src/components/styles/skill-information.css");
+    ${sytles}
   </style>
-  <div class="skills-container">
-    <h2>My skills</h2>
-    <div id="front-end" class="container"></div>
-    <div id="back-end" class="container"></div>
-    <div id="database" class="container"></div>
-    <div id="cloud" class="container"></div>
-  </div>
+  ${templateHTML}
 `;
 
 class SkillInformation extends HTMLElement {
@@ -24,7 +20,6 @@ class SkillInformation extends HTMLElement {
   }
   async connectedCallback() {
     const configuration = await fetchConfiguration();
-
     const skillMap = new Map<Key, SkillSet>(
       Object.entries(configuration.skills)
     );

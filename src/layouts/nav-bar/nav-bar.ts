@@ -1,29 +1,14 @@
-import fetchConfiguration from "../../services/connection";
-import { type Link } from "../../types/app-types";
+import templateHTML from "./nav-bar.html?raw";
+import styles from "./nav-bar.css?inline";
+import { type LanguageConfiguration, type Link } from "./nav-bar.types";
 
 const template = document.createElement("template");
 
 template.innerHTML = `
   <style>
-    @import url("src/components/styles/nav-bar.css");
+    ${styles}
   </style>
-  <nav class="menu">
-    <ul id="links"></ul>
-    <div class="settings-container">
-      <slot name="icon-language"></slot>
-      <div class="language">
-        <select class="language-list">
-          <option value="english" selected="selected">EN</option>
-          <option value="spanish">ES</option>
-        </select>
-      </div>
-      <slot name="icon-theme"></slot>
-      <label class="switch">
-        <input type="checkbox" id="theme-slider" />
-        <span class="slider"></span>
-      </label>
-    </div>
-  </nav>
+  ${templateHTML}
 `;
 
 class NavBar extends HTMLElement {
@@ -33,18 +18,18 @@ class NavBar extends HTMLElement {
     container.appendChild(template.content.cloneNode(true));
   }
   async connectedCallback() {
-    const configuration = await fetchConfiguration();
-    const ul = this.shadowRoot?.getElementById("links")!;
-    this.addLinks(configuration.navbar, ul);
-
+    const language = localStorage.getItem("language") || "en";
+    const languageConfig = await import(`./config/${language}.json`);
     const themeSlider = this.shadowRoot?.getElementById("theme-slider")!;
     themeSlider.addEventListener("change", this.toogleTheme);
+    this.renderTemplate(languageConfig);
   }
-  addLinks(navbarLinks: Link[], ul: HTMLElement) {
-    navbarLinks.forEach((link: Link, index: number) => {
+  renderTemplate(languageConfig: LanguageConfiguration) {
+    const ul = this.shadowRoot?.getElementById("links")!;
+    languageConfig.navbar.forEach((link: Link) => {
       const li = document.createElement("li");
       li.textContent = link.name;
-      if (index === 0) li.classList.add("selected");
+      if (link.selected) li.classList.add("selected");
       li.addEventListener("click", (e) => {
         e.preventDefault();
         if (!li.classList.contains("selected")) {

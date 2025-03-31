@@ -1,20 +1,17 @@
 import fetchConfiguration from "../../services/connection";
+import templateHtml from "./resume-information.html?raw";
+import styles from "./resume-information.css?inline";
 import { type Resume } from "../../types/app-types";
 
 const template = document.createElement("template");
 template.innerHTML = `
-  <style>
-    @import url("src/components/styles/resume-button.css");
-    @import url("node_modules/@fortawesome/fontawesome-free/css/all.min.css");
-  </style>
-  <div class="information-btn">
-    <button id="resume-btn" type="button" class="btn">
-      <i class="fa fa-list-alt"></i>Resume
-    </button>
-  </div>
-`;
+<style>
+  @import url("node_modules/@fortawesome/fontawesome-free/css/all.min.css");
+  ${styles}
+</style>
+${templateHtml}`;
 
-class ResumeButton extends HTMLElement {
+class ResumeInformation extends HTMLElement {
   constructor() {
     super();
     const container = this.attachShadow({ mode: "open" });
@@ -25,12 +22,10 @@ class ResumeButton extends HTMLElement {
     const resumeButton = this.shadowRoot?.getElementById("resume-btn")!;
     resumeButton.addEventListener("click", (e) => {
       e.preventDefault();
-      this.displayResume(configuration.resume["en"]);
+      const resume = configuration.resume as Resume;
+      open(resume.link, resume.target);
     });
-  }
-  displayResume(resume: Resume) {
-    open(resume.link, resume.target);
   }
 }
 
-customElements.define("resume-button", ResumeButton);
+customElements.define("resume-information", ResumeInformation);

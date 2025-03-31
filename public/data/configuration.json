@@ -43,14 +43,8 @@
     }
   ],
   "resume": {
-    "en": {
-      "link": "cv/Alejandro David Tapia Talavera - EN.pdf",
-      "target": "_blank"
-    },
-    "es": {
-      "link": "cv/Alejandro David Tapia Talavera - ES.pdf",
-      "target": "_blank"
-    }
+    "link": "cv/Alejandro David Tapia Talavera - EN.pdf",
+    "target": "_blank"
   },
   "aboutMe": "I am software engineer with 6 years of experience working at EY with international teams to design, implement and deploy solutions, related to compliance and risk management, using a stack of various technologies that include: Angular/React, .NET, SQL Server, Azure DevOps and Azure Cloud.",
   "skills": {
@@ -124,13 +118,7 @@
     ]
   },
   "footer": {
-    "en": {
-      "description": "Website design and developed by Alejandro Tapia",
-      "copyright": "Copyright © {} all rights reserved"
-    },
-    "es": {
-      "description": "Página web diseñada e implementada por Alejandro Tapía",
-      "copyright": "Copyright © {} todos los derechos reservados"
-    }
+    "description": "Website design and developed by Alejandro Tapia",
+    "copyright": "Copyright © {} all rights reserved"
   }
 }

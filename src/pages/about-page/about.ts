@@ -1,19 +1,13 @@
 import fetchConfiguration from "../../services/connection";
+import templateHTML from "./about.html?raw";
+import styles from "./about.css?inline";
 
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
-    @import url("src/pages/styles/about.css");
+   ${styles}
   </style>
-  <section id="about-me" class="about-me-container">
-    <div class="details-container">
-      <div class="bio-container">
-        <h2>About me</h2>
-        <p id="about-me-description"></p>
-      </div>
-      <slot name="skill-container"></slot>
-    </div>
-  </section>
+  ${templateHTML}
 `;
 
 class AboutMe extends HTMLElement {

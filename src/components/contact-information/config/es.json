@@ -1,0 +1,9 @@
+{
+  "email": {
+    "label": "Contáctame:"
+  },
+  "tooltip": {
+    "defaultContent": "¡Cópiame!",
+    "successContent": "¡Copiado!"
+  }
+}

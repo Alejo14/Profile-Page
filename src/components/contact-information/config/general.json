@@ -1,0 +1,32 @@
+{
+  "socialMedia": [
+    {
+      "name": "facebook",
+      "link": "https://www.facebook.com/alejandro.tapiatalavera/",
+      "icon": "fa-brands fa-facebook fa-xl"
+    },
+    {
+      "name": "github",
+      "link": "https://github.com/Alejo14",
+      "icon": "fa-brands fa-github fa-xl"
+    },
+    {
+      "name": "linkedin",
+      "link": "https://www.linkedin.com/in/alejandrotapiatalavera",
+      "icon": "fa-brands fa-linkedin fa-xl"
+    },
+    {
+      "name": "instagram",
+      "link": "https://www.instagram.com/aletapiatalavera/",
+      "icon": "fa-brands fa-instagram fa-xl"
+    }
+  ],
+  "email": "adtapiatalavera@gmail.com",
+  "tooltip": {
+    "icons": {
+      "successIcon": "fa-solid fa-check",
+      "defaultIcon": "fa-regular fa-copy"
+    },
+    "duration": 3000
+  }
+}

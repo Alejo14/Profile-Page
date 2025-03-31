@@ -1,0 +1,20 @@
+{
+  "navbar": [
+    {
+      "name": "Inicio",
+      "event": "show-home",
+      "id": "home-section",
+      "selected": true
+    },
+    {
+      "name": "Acerca",
+      "event": "show-about",
+      "id": "about-me-section"
+    },
+    {
+      "name": "Proyectos",
+      "event": "show-projects",
+      "id": "projects-section"
+    }
+  ]
+}

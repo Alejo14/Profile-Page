@@ -1,20 +1,14 @@
-import fetchConfiguration from "../../services/connection";
-import { type PrincipalImage } from "../../types/app-types";
+import templateHTML from "./home.html?raw";
+import styles from "./home.css?inline";
+import generalConfig from "./config/general.json";
+import { LanguageConfiguration, type ProfileImage } from "./home.types";
 
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
-    @import url("src/pages/styles/home.css");
+    ${styles}
   </style>
-  <section id="home" class="home-container">
-    <div class="information-container">
-      <h1>Hi! I am Alejandro David Tapia Talavera</h1>
-      <p class="description">Software Engineer and Full-stack Developer</p>
-      <slot name="info-buttons"></slot>
-      <slot name="info-links"></slot>
-    </div>
-    <img id="principal-image"/>
-  </section>
+  ${templateHTML}
 `;
 
 class Home extends HTMLElement {
@@ -24,13 +18,20 @@ class Home extends HTMLElement {
     section.appendChild(template.content.cloneNode(true));
   }
   async connectedCallback() {
-    const configuration = await fetchConfiguration();
-    this.displayPrincipalImage(configuration.principalImage);
+    const language = localStorage.getItem("language") || "en";
+    const languageConfig: LanguageConfiguration = await import(
+      `./config/${language}.json`
+    );
+    const title = this.shadowRoot?.getElementById("title")!;
+    const description = this.shadowRoot?.getElementById("description")!;
+    title.textContent = languageConfig.title;
+    description.textContent = languageConfig.description;
+    this.displayPrincipalImage(generalConfig.profileImage);
   }
-  displayPrincipalImage(principalImage: PrincipalImage) {
+  displayPrincipalImage(profileImage: ProfileImage) {
     const image = this.shadowRoot?.getElementById("principal-image")!;
-    image.setAttribute("src", principalImage.src);
-    image.setAttribute("alt", principalImage.alt);
+    image.setAttribute("src", profileImage.src);
+    image.setAttribute("alt", profileImage.alt);
   }
 }
 

@@ -3,6 +3,7 @@ import { type Link } from "./types/app-types";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./style.css";
 import "./components";
+import "./layouts";
 import "./pages";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
@@ -12,7 +13,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   </nav-bar>
   <div class="container">
     <home-section id="home-section">
-      <resume-button slot="info-buttons"></resume-button>
+      <resume-information slot="info-buttons"></resume-information>
       <contact-information slot="info-links"></contact-information>
     </home-section>
     <about-me-section id="about-me-section" class="d-none">
