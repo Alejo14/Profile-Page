@@ -1,4 +1,3 @@
-import fetchConfiguration from "../../services/connection";
 import templateHTML from "./about.html?raw";
 import styles from "./about.css?inline";
 
@@ -17,11 +16,14 @@ class AboutMe extends HTMLElement {
     section.appendChild(template.content.cloneNode(true));
   }
   async connectedCallback() {
-    const configuration = await fetchConfiguration();
+    const language = localStorage.getItem("language") || "en";
+    const languageConfig = await import(`./config/${language}.json`);
+    const title = this.shadowRoot?.getElementById("title")!;
     const aboutMeDescription = this.shadowRoot?.getElementById(
       "about-me-description"
     )!;
-    aboutMeDescription.textContent = configuration.aboutMe;
+    title.textContent = languageConfig.title;
+    aboutMeDescription.textContent = languageConfig.aboutMe;
   }
 }
 

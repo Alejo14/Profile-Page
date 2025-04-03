@@ -1,0 +1,72 @@
+{
+  "skills": {
+    "front-end": [
+      {
+        "name": "javascript",
+        "icon": "logos/js-logo.png"
+      },
+      {
+        "name": "html",
+        "icon": "logos/html5-logo.png"
+      },
+      {
+        "name": "css",
+        "icon": "logos/css-logo.png"
+      },
+      {
+        "name": "react",
+        "icon": "logos/react-logo.png"
+      },
+      {
+        "name": "angular",
+        "icon": "logos/angularjs-logo.png"
+      },
+      {
+        "name": "vue",
+        "icon": "logos/vue-logo.png"
+      }
+    ],
+    "back-end": [
+      {
+        "name": "csharp",
+        "icon": "logos/csharp-logo.png"
+      },
+      {
+        "name": "dotnet",
+        "icon": "logos/net-logo.png"
+      },
+      {
+        "name": "java",
+        "icon": "logos/java-logo.png"
+      },
+      {
+        "name": "python",
+        "icon": "logos/python-logo.png"
+      }
+    ],
+    "database": [
+      {
+        "name": "sqlserver",
+        "icon": "logos/sqlserver-logo.png"
+      },
+      {
+        "name": "mysql",
+        "icon": "logos/mysql-logo.png"
+      },
+      {
+        "name": "mongodb",
+        "icon": "logos/mongo-logo.png"
+      }
+    ],
+    "cloud": [
+      {
+        "name": "aws",
+        "icon": "logos/aws-logo.png"
+      },
+      {
+        "name": "azure",
+        "icon": "logos/azure-logo.png"
+      }
+    ]
+  }
+}

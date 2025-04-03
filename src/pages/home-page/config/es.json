@@ -1,4 +1,8 @@
 {
   "title": "¡Hola! Soy Alejandro David Tapia Talavera",
-  "description": "Ingeniero de Software y Desarrollador Full-stack"
+  "description": "Ingeniero de Software y Desarrollador Full-stack",
+  "resume": {
+    "link": "cv/Alejandro David Tapia Talavera - ES.pdf",
+    "target": "_blank"
+  }
 }

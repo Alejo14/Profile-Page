@@ -1,11 +1,16 @@
 import templateHTML from "./home.html?raw";
 import styles from "./home.css?inline";
 import generalConfig from "./config/general.json";
-import { LanguageConfiguration, type ProfileImage } from "./home.types";
+import {
+  type LanguageConfiguration,
+  type ProfileImage,
+  type Resume,
+} from "./home.types";
 
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
+    @import url("node_modules/@fortawesome/fontawesome-free/css/all.min.css");
     ${styles}
   </style>
   ${templateHTML}
@@ -26,12 +31,20 @@ class Home extends HTMLElement {
     const description = this.shadowRoot?.getElementById("description")!;
     title.textContent = languageConfig.title;
     description.textContent = languageConfig.description;
-    this.displayPrincipalImage(generalConfig.profileImage);
+    this.renderProfilImage(generalConfig.profileImage);
+    this.renderResumeBtn(languageConfig.resume);
   }
-  displayPrincipalImage(profileImage: ProfileImage) {
+  renderProfilImage(profileImage: ProfileImage) {
     const image = this.shadowRoot?.getElementById("principal-image")!;
     image.setAttribute("src", profileImage.src);
     image.setAttribute("alt", profileImage.alt);
+  }
+  renderResumeBtn(resume: Resume) {
+    const resumeButton = this.shadowRoot?.getElementById("resume-btn")!;
+    resumeButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      open(resume.link, resume.target);
+    });
   }
 }
 

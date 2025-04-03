@@ -14,6 +14,48 @@
   }
 }
 
+.language-container {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  bottom: 22%;
+  right: 1%;
+  justify-content: center;
+  align-items: center;
+}
+
+.language {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.language-list {
+  & {
+    padding: 5px;
+    width: 50px;
+    height: 30px;
+    background-color: var(--secondary-color);
+    color: var(--accent-color-light);
+    border-radius: 10px;
+  }
+  &:focus,
+  &:focus-visible,
+  &:active {
+    border: unset;
+    outline: unset;
+  }
+  &:focus-visible {
+    box-shadow: 0 0 5px var(--accent-color-light);
+  }
+  & option {
+    background-color: var(--secondary-color);
+  }
+  &:focus option:checked {
+    background: var(--secondary-color);
+  }
+}
+
 /*Animations and Media Queries*/
 @keyframes opacity {
   0% {

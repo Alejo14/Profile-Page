@@ -20,7 +20,7 @@
   & {
     display: flex;
     flex-direction: column;
-    max-width: 30%;
+    max-width: 25%;
   }
   & > h2 {
     margin: 20px 0;
@@ -31,7 +31,7 @@
 }
 
 ::slotted(*) {
-  width: 35%;
+  width: 40%;
 }
 
 /*Animations and Media Queries*/

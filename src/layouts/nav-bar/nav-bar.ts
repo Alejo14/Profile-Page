@@ -1,6 +1,10 @@
 import templateHTML from "./nav-bar.html?raw";
 import styles from "./nav-bar.css?inline";
-import { type LanguageConfiguration, type Link } from "./nav-bar.types";
+import {
+  type LanguageConfiguration,
+  type Link,
+  type Event,
+} from "./nav-bar.types";
 
 const template = document.createElement("template");
 
@@ -39,7 +43,7 @@ class NavBar extends HTMLElement {
       ul.appendChild(li);
     });
   }
-  changeSection(li: HTMLElement, event: string) {
+  changeSection(li: HTMLElement, event: Event) {
     this.dispatchEvent(
       new CustomEvent(event, {
         detail: {},

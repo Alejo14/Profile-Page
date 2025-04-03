@@ -1,0 +1,16 @@
+{
+  "navbarEvents": [
+    {
+      "id": "home-section",
+      "event": "show-home"
+    },
+    {
+      "id": "about-me-section",
+      "event": "show-about"
+    },
+    {
+      "id": "projects-section",
+      "event": "show-projects"
+    }
+  ]
+}

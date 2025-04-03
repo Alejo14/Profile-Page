@@ -1,4 +1,8 @@
 {
   "title": "Hi! I am Alejandro David Tapia Talavera",
-  "description": "Software Engineer and Full-stack Developer"
+  "description": "Software Engineer and Full-stack Developer",
+  "resume": {
+    "link": "cv/Alejandro David Tapia Talavera - EN.pdf",
+    "target": "_blank"
+  }
 }

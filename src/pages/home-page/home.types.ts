@@ -6,4 +6,10 @@ export type ProfileImage = {
 export type LanguageConfiguration = {
   title: string;
   description: string;
+  resume: Resume;
+};
+
+export type Resume = {
+  link: string;
+  target: string;
 };

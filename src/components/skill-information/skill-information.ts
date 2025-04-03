@@ -1,7 +1,11 @@
-import fetchConfiguration from "../../services/connection";
 import templateHTML from "./skill-information.html?raw";
 import sytles from "./skill-information.css?inline";
-import { type SkillSet, type Container, type Key } from "../../types/app-types";
+import {
+  type SkillSet,
+  type Container,
+  type Discipline,
+} from "./skill-information.types";
+import generalConfig from "./config/general.json";
 
 const template = document.createElement("template");
 
@@ -19,34 +23,38 @@ class SkillInformation extends HTMLElement {
     container.appendChild(template.content.cloneNode(true));
   }
   async connectedCallback() {
-    const configuration = await fetchConfiguration();
-    const skillMap = new Map<Key, SkillSet>(
-      Object.entries(configuration.skills)
+    const language = localStorage.getItem("language") || "en";
+    const languageConfig = await import(`./config/${language}.json`);
+    const title = this.shadowRoot?.getElementById("title")!;
+    title.textContent = languageConfig.title;
+    const skillMap = new Map<Discipline, SkillSet>(
+      Object.entries(generalConfig.skills)
     );
     skillMap.forEach((value, key) => {
       const container = this.shadowRoot?.getElementById(key)!;
-      this.displayStack(container, value, key);
+      this.renderTechStack(container, value, languageConfig.disciplines[key]);
     });
   }
-  displayStack(container: Container, stack: SkillSet, stakname: Key) {
+  renderTechStack(
+    container: Container,
+    skillset: SkillSet,
+    discipline: Discipline
+  ) {
     const subtitle = document.createElement("span");
-    subtitle.textContent = this.capitalize(stakname);
+    subtitle.textContent = discipline;
     subtitle.classList.add("skill-subtitle");
     container.appendChild(subtitle);
     const divContainer = document.createElement("div");
-    divContainer.classList.add("skill-icons");
+    divContainer.classList.add("skill-container");
     container.appendChild(divContainer);
-    stack.forEach((el) => {
+    skillset.forEach((skill) => {
       const img = document.createElement("img");
-      img.setAttribute("src", el.icon);
-      img.setAttribute("alt", `${el.name} image`);
-      img.setAttribute("id", el.name);
+      img.setAttribute("src", skill.icon);
+      img.setAttribute("alt", `${skill.name} image`);
+      img.setAttribute("id", skill.name);
       img.classList.add("skill-icon");
       divContainer.appendChild(img);
     });
-  }
-  capitalize(str: string) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 }
 

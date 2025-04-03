@@ -8,3 +8,5 @@ export type Link = {
   id: string;
   selected?: boolean;
 };
+
+export type Event = string;

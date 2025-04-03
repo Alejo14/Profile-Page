@@ -1,4 +1,13 @@
 <div class="footer">
   <span id="description"></span>
   <span id="copyright"></span>
+  <div class="language-container">
+    <slot name="icon-language"></slot>
+    <div class="language">
+      <select class="language-list">
+        <option id="en" value="en">EN</option>
+        <option id="es" value="es">ES</option>
+      </select>
+    </div>
+  </div>
 </div>
