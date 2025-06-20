@@ -1,11 +1,9 @@
 import templateHTML from "./home.html?raw";
 import styles from "./home.css?inline";
 import generalConfig from "./config/general.json";
-import {
-  type LanguageConfiguration,
-  type ProfileImage,
-  type Resume,
-} from "./home.types";
+import { type ProfileImage, type Buttons, type Resume } from "./home.types";
+import { type Languages } from "../../types/main.types";
+import { getLanguage } from "../../utils/utils";
 
 const template = document.createElement("template");
 template.innerHTML = `
@@ -23,27 +21,34 @@ class Home extends HTMLElement {
     section.appendChild(template.content.cloneNode(true));
   }
   async connectedCallback() {
-    const language = localStorage.getItem("language") || "en";
-    const languageConfig: LanguageConfiguration = await import(
-      `./config/${language}.json`
-    );
-    const title = this.shadowRoot?.getElementById("title")!;
+    const language = getLanguage();
+    const profession = this.shadowRoot?.getElementById("profession")!;
     const description = this.shadowRoot?.getElementById("description")!;
-    title.textContent = languageConfig.title;
-    description.textContent = languageConfig.description;
+    profession.textContent = generalConfig.profession[language];
+    description.textContent = generalConfig.description[language];
     this.renderProfilImage(generalConfig.profileImage);
-    this.renderResumeBtn(languageConfig.resume);
+    this.renderButtons(generalConfig.btn, language);
+    this.addResumeBtnFn(generalConfig.resume, language);
   }
   renderProfilImage(profileImage: ProfileImage) {
     const image = this.shadowRoot?.getElementById("principal-image")!;
     image.setAttribute("src", profileImage.src);
     image.setAttribute("alt", profileImage.alt);
   }
-  renderResumeBtn(resume: Resume) {
-    const resumeButton = this.shadowRoot?.getElementById("resume-btn")!;
-    resumeButton.addEventListener("click", (e) => {
+  renderButtons(buttons: Buttons[], language: Languages) {
+    buttons.forEach((btn) => {
+      const button = this.shadowRoot?.getElementById(btn.id)!;
+      const icon = document.createElement("i");
+      icon.classList.add(...btn.icon.split(" "));
+      button.appendChild(icon);
+      button.innerHTML += btn.text[language];
+    });
+  }
+  addResumeBtnFn(resume: Resume, language: Languages) {
+    const button = this.shadowRoot?.getElementById("resume-btn")!;
+    button.addEventListener("click", (e) => {
       e.preventDefault();
-      open(resume.link, resume.target);
+      open(resume.link[language], resume.target);
     });
   }
 }

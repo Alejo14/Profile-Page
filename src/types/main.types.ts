@@ -1,4 +1,1 @@
-export type Link = {
-  id: string;
-  event: string;
-};
+export type Languages = "en" | "es";

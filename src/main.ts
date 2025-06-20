@@ -1,4 +1,3 @@
-import { type Link } from "./types/main.types";
 import mainHtml from "./main.html?raw";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./style.css";
@@ -10,21 +9,11 @@ import { setLanguage, setTheme } from "./utils/utils";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = mainHtml;
 
-const navbarContainer = document.getElementById("nav-bar")!;
 const themeIcon = document.getElementById("theme-icon")!;
+const defaultLanguage = generalConfig.defaultLanguage;
 
 setTheme(themeIcon);
-setLanguage();
-
-generalConfig.navbarEvents.forEach((el: Link) => {
-  navbarContainer.addEventListener(el.event, () => {
-    document.querySelectorAll(".container > *").forEach((child) => {
-      child.id === el.id
-        ? child.classList.remove("d-none")
-        : child.classList.add("d-none");
-    });
-  });
-});
+setLanguage(defaultLanguage);
 
 document.addEventListener(
   "change-theme",

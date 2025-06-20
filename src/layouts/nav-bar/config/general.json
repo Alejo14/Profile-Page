@@ -1,0 +1,31 @@
+{
+  "navbar": [
+    {
+      "name": {
+        "en": "Home",
+        "es": "Inicio"
+      },
+      "event": "show-home",
+      "id": "home-section",
+      "href": "#home-section"
+    },
+    {
+      "name": {
+        "en": "About",
+        "es": "Acerca"
+      },
+      "event": "show-about",
+      "id": "about-me-section",
+      "href": "#about-me-section"
+    },
+    {
+      "name": {
+        "en": "Projects",
+        "es": "Proyectos"
+      },
+      "event": "show-projects",
+      "id": "projects-section",
+      "href": "#projects-section"
+    }
+  ]
+}

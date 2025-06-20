@@ -1,13 +1,15 @@
 <section id="home" class="home-container">
   <div class="information-container">
-    <h1 id="title">Hi! I am Alejandro David Tapia Talavera</h1>
+    <p id="profession"></p>
+    <h1 id="name">Alejandro Tapia Talavera</h1>
     <p id="description" class="description"></p>
     <div class="information-btn">
-      <button id="resume-btn" type="button" class="btn">
-        <i class="fa fa-list-alt"></i>Resume
-      </button>
+      <button id="resume-btn" type="button" class="btn"></button>
+      <button id="contact-btn" type="button" class="btn"></button>
     </div>
+  </div>
+  <div class="image-links-container">
+    <img id="principal-image" />
     <slot name="info-links"></slot>
   </div>
-  <img id="principal-image" />
 </section>

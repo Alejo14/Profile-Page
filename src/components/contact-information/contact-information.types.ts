@@ -1,16 +1,16 @@
-export type LanguageConfiguration = {
-  email: EmailConfiguration;
-  tooltip: TooltipConfiguration;
-};
+// export type LanguageConfiguration = {
+//   email: EmailConfiguration;
+//   tooltip: TooltipConfiguration;
+// };
 
-export type EmailConfiguration = {
-  label: string;
-};
+// export type EmailConfiguration = {
+//   label: string;
+// };
 
-export type TooltipConfiguration = {
-  defaultContent: TooltipContent;
-  successContent: TooltipContent;
-};
+// export type TooltipConfiguration = {
+//   defaultContent: TooltipContent;
+//   successContent: TooltipContent;
+// };
 
 export type SocialMedia = {
   name: string;
@@ -18,6 +18,6 @@ export type SocialMedia = {
   icon: string;
 };
 
-export type CopyIcon = Element;
-export type Icons = string;
-export type TooltipContent = string;
+// export type CopyIcon = Element;
+// export type Icons = string;
+// export type TooltipContent = string;

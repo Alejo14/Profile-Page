@@ -1,6 +1,39 @@
 {
+  "profession": {
+    "en": "Full Stack Developer",
+    "es": "Desarrollador Full Stack"
+  },
+  "description": {
+    "en": "Web developer with +6 years of experience designing, developing, and deploying web applications with a great UX",
+    "es": "Desarrollador web con +6 años de experiencia diseñando, desarrollando y desplegando aplicaciones web con un gran UX"
+  },
   "profileImage": {
     "src": "picture/Alejandrov5.png",
     "alt": "Alejandro Tapia Profile Image"
+  },
+  "btn": [
+    {
+      "id": "resume-btn",
+      "icon": "fa fa-list-alt",
+      "text": {
+        "en": "Resume",
+        "es": "Curriculum"
+      }
+    },
+    {
+      "id": "contact-btn",
+      "icon": "fa fa-paper-plane",
+      "text": {
+        "en": "Contact me",
+        "es": "Contáctame"
+      }
+    }
+  ],
+  "resume": {
+    "link": {
+      "en": "cv/Alejandro David Tapia Talavera - EN.pdf",
+      "es": "cv/Alejandro David Tapia Talavera - ES.pdf"
+    },
+    "target": "_blank"
   }
 }

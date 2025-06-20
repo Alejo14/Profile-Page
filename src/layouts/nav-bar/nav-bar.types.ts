@@ -1,12 +1,9 @@
-export type LanguageConfiguration = {
-  navbar: Link[];
-};
-
 export type Link = {
-  name: string;
+  name: {
+    en: string;
+    es: string;
+  };
   event: string;
   id: string;
-  selected?: boolean;
+  href: string;
 };
-
-export type Event = string;

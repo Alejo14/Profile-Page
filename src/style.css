@@ -1,15 +1,15 @@
 :root {
-  --primary-color: #213555;
-  --secondary-color: #4a77bf;
-  --terciary-color: #a4a3ec;
-  --cuartary-color: #c6c5ea;
+  --primary-color: #8a817c;
+  --secondary-color: #dfdbd2;
+  --terciary-color: #f4f3ee;
+  --cuartary-color: #e0afa0;
 
-  --accent-color-light: #ffffff;
-  --accent-color-dark: #000500;
+  --accent-color-light: #1d1b1b;
+  --accent-color-dark: #efd9c3;
 
-  --primary-color-opacity: #21355555;
-  --secondary-color-opacity: #4a77bf55;
-  --terciary-color-opacity: #a4a3ec55;
+  --primary-color-opacity: #8a817c55;
+  --secondary-color-opacity: #dfdbd255;
+  --terciary-color-opacity: #f4f3ee55;
 }
 
 [data-theme="dark"] {
@@ -19,11 +19,17 @@
   --cuartary-color: #8f8f8f;
 
   --accent-color-light: #efd9c3;
-  --accent-color-dark: #000000;
+  --accent-color-dark: #1d1b1b;
 
   --primary-color-opacity: #2d2d2d55;
   --secondary-color-opacity: #48484855;
   --terciary-color-opacity: #71717155;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
 }
 
 *,
@@ -34,22 +40,11 @@
   margin: 0;
 }
 
-html,
-body,
-main {
-  height: 100%;
-}
-
 body {
-  background-color: var(--primary-color);
   color: var(--accent-color-light);
   font-size: 1.5em;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(
-    var(--primary-color),
-    var(--secondary-color),
-    var(--terciary-color)
-  );
+  background-color: var(--secondary-color);
 }
 
 main {
@@ -57,7 +52,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100%;
+  position: relative;
 }
 
 i {
@@ -65,14 +60,23 @@ i {
   font-weight: 900;
 }
 
-.container > * {
-  position: relative;
-  top: 0;
+.layout {
+  position: fixed;
+  width: 100%;
 }
 
-.layout {
-  position: absolute;
+#footer.layout {
+  position: relative;
+  bottom: 0;
+}
+
+#home-section,
+#about-me-section {
+  height: 100vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #nav-bar {
@@ -81,10 +85,6 @@ i {
 
 #footer {
   bottom: 0;
-}
-
-.d-none {
-  display: none;
 }
 
 /*Animations & Media Queries*/

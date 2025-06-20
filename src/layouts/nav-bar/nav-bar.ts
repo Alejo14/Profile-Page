@@ -1,10 +1,9 @@
 import templateHTML from "./nav-bar.html?raw";
 import styles from "./nav-bar.css?inline";
-import {
-  type LanguageConfiguration,
-  type Link,
-  type Event,
-} from "./nav-bar.types";
+import { type Link } from "./nav-bar.types";
+import generalConfig from "./config/general.json";
+import { getLanguage } from "../../utils/utils";
+import { Languages } from "../../types/main.types";
 
 const template = document.createElement("template");
 
@@ -22,39 +21,21 @@ class NavBar extends HTMLElement {
     container.appendChild(template.content.cloneNode(true));
   }
   async connectedCallback() {
-    const language = localStorage.getItem("language") || "en";
-    const languageConfig = await import(`./config/${language}.json`);
+    const language = getLanguage();
     const themeSlider = this.shadowRoot?.getElementById("theme-slider")!;
     themeSlider.addEventListener("change", this.toogleTheme);
-    this.renderTemplate(languageConfig);
+    this.renderTemplate(generalConfig.navbar, language);
   }
-  renderTemplate(languageConfig: LanguageConfiguration) {
+  renderTemplate(navbar: Link[], language: Languages) {
     const ul = this.shadowRoot?.getElementById("links")!;
-    languageConfig.navbar.forEach((link: Link) => {
+    navbar.forEach((link) => {
       const li = document.createElement("li");
-      li.textContent = link.name;
-      if (link.selected) li.classList.add("selected");
-      li.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (!li.classList.contains("selected")) {
-          this.changeSection(e.target as HTMLElement, link.event);
-        }
-      });
+      const a = document.createElement("a");
+      a.textContent = link.name[language];
+      a.setAttribute("href", link.href);
+      li.appendChild(a);
       ul.appendChild(li);
     });
-  }
-  changeSection(li: HTMLElement, event: Event) {
-    this.dispatchEvent(
-      new CustomEvent(event, {
-        detail: {},
-        bubbles: true,
-        composed: true,
-      })
-    );
-    this.shadowRoot?.querySelectorAll(".menu>ul>li").forEach((li) => {
-      li.classList.remove("selected");
-    });
-    li.classList.add("selected");
   }
   toogleTheme() {
     const currentTheme = localStorage.getItem("theme");

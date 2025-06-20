@@ -1,4 +1,5 @@
 import { type ThemeIcon } from "./utils.types";
+import { type Languages } from "../types/main.types";
 
 export const setTheme = (icon: ThemeIcon) => {
   const themeStorage = localStorage.getItem("theme");
@@ -18,4 +19,12 @@ export const setTheme = (icon: ThemeIcon) => {
   }
 };
 
-export const setLanguage = () => localStorage.setItem("language", "en");
+export const setLanguage = (language = "en") =>
+  localStorage.setItem("language", language);
+
+export const getLanguage = (): Languages => {
+  const savedLanguage = localStorage.getItem("language");
+  return savedLanguage !== "en" && savedLanguage !== "es"
+    ? "en"
+    : savedLanguage;
+};
